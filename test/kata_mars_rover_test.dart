@@ -23,8 +23,6 @@ void main() {
     Grille grille = Grille();
 
     // Act
-
-
     // Asset
     expect(grille.xMax, 9);
     expect(grille.yMax, 9);
@@ -114,5 +112,36 @@ void main() {
     expect(rover.posY, -5);
     expect(rover.posX, 0);
   });
+
+  test("rover turn before move if he don't look the good direction", () {
+    // Arrange
+    Grille grille = Grille();
+    Rover rover = Rover('test rover', grille, watchingDirection: 'north');
+
+    // Act
+    rover.move(x: 1);
+
+    // Asset
+    expect(rover.posY, 0);
+    expect(rover.posX, 1);
+    expect(rover.watchingDirection, 'east');
+
+  });
+
+  test("rover don't turn before move if he look the good direction", () {
+    // Arrange
+    Grille grille = Grille();
+    Rover rover = Rover('test rover', grille, watchingDirection: 'north');
+
+    // Act
+    rover.move(y: 1);
+
+    // Asset
+    expect(rover.posY, 1);
+    expect(rover.posX, 0);
+    expect(rover.watchingDirection, 'north');
+
+  });
+
 
 }

@@ -11,15 +11,6 @@ class Rover {
 
   Rover(this.name, this.grille, {this.posX = 0, this.posY = 0, this.watchingDirection = constantDirection.NORTH});
 
-  void checkDirection(direction) {
-    if(watchingDirection == direction) {
-      print("J'avance");
-    } else {
-      turn(direction);
-      print("Maintenant j'avance vers $watchingDirection");
-    }
-  }
-
 
   void move({int x = 0, int y = 0}) {
     print("Actuellement je regarde vers $watchingDirection");
@@ -29,7 +20,7 @@ class Rover {
     }
     else if (posX + x < 0) {
       checkDirection(constantDirection.WEST);
-    posX = ((posX + x) + grille.xMax) + 1;
+      posX = ((posX + x) + grille.xMax) + 1;
     }
     else {
       if(posX + x > posX) {
@@ -39,7 +30,7 @@ class Rover {
        print("Je ne bouge pas");
       }
       else {
-        checkDirection(constantDirection.WEST);
+       checkDirection(constantDirection.WEST);
       }
       posX += x;
     }
@@ -54,7 +45,7 @@ class Rover {
       posY = ((posY + y) + grille.yMax) + 1;
     }
     else {
-      if(posY + x > posY) {
+      if(posY + y > posY) {
         checkDirection(constantDirection.NORTH);
       }
       else if(y == 0) {
@@ -70,5 +61,14 @@ class Rover {
   void turn(direction) {
     watchingDirection = direction;
     print("Je tourne vers $direction");
+  }
+
+  void checkDirection(direction) {
+    if(watchingDirection == direction) {
+      print("J'avance");
+    } else {
+      turn(direction);
+      print("Maintenant j'avance vers $watchingDirection");
+    }
   }
 }

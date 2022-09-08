@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'Grille.dart';
 import 'constant.dart' as constantDirection ;
 
@@ -98,5 +100,16 @@ class Rover {
         break;
       }
     });
+  }
+
+  String randomCode(){
+    int size = Random().nextInt(10) + 1;
+    List<String> cardinalPoints = ["N","S","W","E"];
+    String code = "";
+    for( var i = 0 ; i < size; i++ ) { 
+      int index = Random().nextInt(4);
+      code += cardinalPoints[index];
+   }
+   return code;
   }
 }

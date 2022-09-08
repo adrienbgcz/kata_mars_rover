@@ -27,8 +27,8 @@ void main() {
 
 
     // Asset
-    expect(grille.xMax, 10);
-    expect(grille.yMax, 10);
+    expect(grille.xMax, 9);
+    expect(grille.yMax, 9);
   });
 
   // Define the test
@@ -68,15 +68,52 @@ void main() {
     expect(rover.posX, 0);
   });
 
-  /*test("rover don't move if X position > xMax", () {
+  test("rover don't move if X position > xMax", () {
     // Arrange
     Grille grille = Grille();
     Rover rover = Rover('test rover', grille);
 
     // Act
-    rover.move();
+    rover.move(x:15);
     // Asset
     expect(rover.posY, 0);
+    expect(rover.posX, 5);
+  });
+
+  test("rover don't move if Y position > yMax", () {
+    // Arrange
+    Grille grille = Grille();
+    Rover rover = Rover('test rover', grille);
+
+    // Act
+    rover.move(y:15);
+    // Asset
+    expect(rover.posY, 5);
     expect(rover.posX, 0);
-  });*/
+  });
+
+  test("rover don't move if X position < 0", () {
+    // Arrange
+    Grille grille = Grille();
+    Rover rover = Rover('test rover', grille);
+
+    // Act
+    rover.move(x:-15);
+    // Asset
+    expect(rover.posY, 0);
+    expect(rover.posX, -5);
+  });
+
+  test("rover don't move if Y position < 0", () {
+    // Arrange
+    Grille grille = Grille();
+    Rover rover = Rover('test rover', grille);
+
+    // Act
+    rover.move(y:-15);
+    // Asset
+    expect(rover.posY, -5);
+    expect(rover.posX, 0);
+  });
+
 }

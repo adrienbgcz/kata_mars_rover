@@ -3,7 +3,7 @@ import 'Grille.dart';
 import 'Rover.dart';
 
 void main(List<String> arguments) {
-  Rover perseverance = Rover('perseverance', posX: 10, posY: 10);
-  Rover test = Rover('test');
-  Grille atelier = Grille(perseverance);
+  Grille atelier = Grille();
+  Rover perseverance = Rover('perseverance', atelier, posX: 10, posY: 10);
+
 }

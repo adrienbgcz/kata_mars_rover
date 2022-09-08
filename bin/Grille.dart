@@ -1,9 +1,10 @@
 import 'Rover.dart';
 
 class Grille {
-  final int xMax = 10;
-  final int yMax = 10;
-  Rover rover;
+  final int xMax = 9;
+  final int yMax = 9;
 
-  Grille(this.rover);
+  /*Rover rover;*/
+
+  /*Grille(this.rover);*/
 }

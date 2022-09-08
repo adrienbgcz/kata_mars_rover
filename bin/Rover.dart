@@ -71,4 +71,32 @@ class Rover {
       print("Maintenant j'avance vers $watchingDirection");
     }
   }
+
+  void convert(String message){ 
+    message.runes.forEach((int rune) {
+      var char = String.fromCharCode(rune);
+
+      switch(char){
+        case "N":{
+          move(y: 1);
+        }
+        break;
+
+        case "S":{
+          move(y: -1);
+        }
+        break;
+
+        case "W":{
+          move(x: -1);
+        }
+        break;
+
+        case "E":{
+          move(x: 1);
+        }
+        break;
+      }
+    });
+  }
 }
